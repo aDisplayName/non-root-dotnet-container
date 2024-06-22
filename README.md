@@ -2,6 +2,9 @@ non-root-dotnet-container
 =
 Demonstrate how to configure filesystem access for container based on non-root dotnet image
 
+
+[![Docker Image CI](https://github.com/aDisplayName/non-root-dotnet-container/actions/workflows/docker-image.yml/badge.svg?branch=main)](https://github.com/aDisplayName/non-root-dotnet-container/actions/workflows/docker-image.yml)
+
 # Summary
 From .NET 8, the distroless base runtime images are introduced by Microsoft with reduced size, and better security.
 
