@@ -3,7 +3,7 @@ non-root-dotnet-container
 Demonstrate how to configure filesystem access for container based on non-root dotnet image
 
 
-[![Docker Image CI](https://github.com/aDisplayName/non-root-dotnet-container/actions/workflows/docker-image.yml/badge.svg?branch=main)](https://github.com/aDisplayName/non-root-dotnet-container/actions/workflows/docker-image.yml)
+[![Docker Image Build](https://github.com/aDisplayName/non-root-dotnet-container/actions/workflows/docker-image.yml/badge.svg?branch=main)](https://github.com/aDisplayName/non-root-dotnet-container/actions/workflows/docker-image.yml)
 
 # Summary
 From .NET 8, the distroless base runtime images are introduced by Microsoft with reduced size, and better security.
@@ -20,6 +20,15 @@ docker build . -t file-access-test:0.0.1
 
 # Test
 This is the folder tree after the build, which can be obtained by [`dive`](https://github.com/wagoodman/dive) utility. 
+```
+dive gcr.io/adisplayname/non-root-dotnet-container:main
+```
+
+> To install dive on windows:
+> ```
+> winget install wagoodman.dive
+> ```
+
 
 Notice the ownership difference between `/app/bin` (owned by `root`) and `/app/bin2` (owned by `app`). Although none of any existing files under those two folders can be modified, the non-root `app` user can create new files under `/app/bin2` folder, potentially changing .NET app settings, but cannot create new files under `/app/bin` folder at all.
 
