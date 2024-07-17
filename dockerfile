@@ -10,6 +10,7 @@ RUN dotnet publish . -c Release --output /publish/bin
 # https://github.com/dotnet/dotnet-docker
 # Use the concret image tag and version instead of latest
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-jammy
+USER app
 # The following folder are created under "app" user, which is a non-root user.
 WORKDIR /app/data
 
